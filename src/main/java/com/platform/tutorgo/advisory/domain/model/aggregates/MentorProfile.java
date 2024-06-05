@@ -47,7 +47,7 @@ public class MentorProfile extends AbstractAggregateRoot<MentorProfile> {
     private Mentor mentor;
 
 
-    public MentorProfile(String nick,String phonenumber, String slogan, String userprofilephoto, List<String> certificates, Mentor mentor){
+    public MentorProfile(String nick, String phonenumber, String slogan, String userprofilephoto, List<String> certificates, Mentor mentor){
         this.nick=nick;
         this.phonenumber=new PhoneNumber(phonenumber);
         this.slogan=slogan;

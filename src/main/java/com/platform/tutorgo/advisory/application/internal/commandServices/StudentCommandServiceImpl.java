@@ -1,4 +1,4 @@
-package com.platform.tutorgo.advisory.application.internal.commandservices;
+package com.platform.tutorgo.advisory.application.internal.commandServices;
 
 import com.platform.tutorgo.advisory.domain.model.aggregates.Student;
 import com.platform.tutorgo.advisory.domain.model.commands.CreateStudentCommand;

@@ -8,7 +8,11 @@ import com.platform.tutorgo.advisory.domain.model.queries.GetMentorProfileByMent
 import com.platform.tutorgo.advisory.domain.services.commands.MentorProfileCommandService;
 import com.platform.tutorgo.advisory.domain.services.queries.MentorProfileQueryService;
 import com.platform.tutorgo.advisory.interfaces.rest.resources.CreateMentorProfileResource;
+import com.platform.tutorgo.advisory.interfaces.rest.resources.MentorProfileResource;
+import com.platform.tutorgo.advisory.interfaces.rest.resources.UpdateMentorProfileResource;
 import com.platform.tutorgo.advisory.interfaces.rest.transform.CreateMentorProfileCommandFromResource;
+import com.platform.tutorgo.advisory.interfaces.rest.transform.MentorProfileEntityToResource;
+import com.platform.tutorgo.advisory.interfaces.rest.transform.UpdateMentorProfileCommandFromResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

@@ -14,20 +14,19 @@ public class Mentor {
     private Long id;
 
 
-    @Embedded
-    private Subscription subscription;
+
 
     @ManyToOne
     @Getter
     @JoinColumn(name = "student_id")
     private Student student;
 
-    public Mentor(String subscription, Student student){
-        this.subscription= new Subscription(subscription);
+    public Mentor( Student student){
+
         this.student=student;
     }
 
     public Mentor(){}
 
-    public String getSubscription(){return this.subscription.subscription();}
+
 }

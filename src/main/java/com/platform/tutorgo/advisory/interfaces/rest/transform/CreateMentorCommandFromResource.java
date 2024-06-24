@@ -5,6 +5,6 @@ import com.platform.tutorgo.advisory.interfaces.rest.resources.CreateMentorResou
 
 public class CreateMentorCommandFromResource {
     public static CreateMentorCommand resourceToCommand(CreateMentorResource resource){
-        return new CreateMentorCommand(resource.subscription(),resource.idStudent());
+        return new CreateMentorCommand(resource.idStudent());
     }
 }

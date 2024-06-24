@@ -87,7 +87,7 @@ public class WebSecurityConfiguration {
                 .cors(corsConfigurer -> corsConfigurer
                         .configurationSource(request -> {
                             var cors = new CorsConfiguration();
-                            cors.setAllowedOrigins(java.util.List.of("https://arquimentor-7e645.firebaseapp.com"));
+                            cors.setAllowedOrigins(java.util.List.of("http://localhost:4200"));
                             cors.setAllowedMethods(java.util.List.of("*"));
                             cors.setAllowedHeaders(java.util.List.of("*"));
                             cors.setAllowCredentials(true);

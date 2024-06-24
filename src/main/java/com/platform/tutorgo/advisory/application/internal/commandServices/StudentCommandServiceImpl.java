@@ -22,7 +22,7 @@ public class StudentCommandServiceImpl implements StudentCommandService {
                 .map(student -> {
                     throw new IllegalArgumentException("Studdent whit email"+ command.email()+" already exists");
                 });*/
-        var student = new Student(command.firstname(),command.lastname(),command.email(),command.password());
+        var student = new Student(command.firstname(),command.lastname(),command.email(),command.password(),command.subscription());
         studentRepository.save(student);
         return student.getId();
     }

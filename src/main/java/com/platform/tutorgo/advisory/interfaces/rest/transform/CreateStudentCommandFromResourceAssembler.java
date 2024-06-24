@@ -9,6 +9,7 @@ public class CreateStudentCommandFromResourceAssembler {
                 resource.firstName(),
                 resource.lastname(),
                 resource.email(),
-                resource.password());
+                resource.password(),
+               resource.subscription());
     }
 }

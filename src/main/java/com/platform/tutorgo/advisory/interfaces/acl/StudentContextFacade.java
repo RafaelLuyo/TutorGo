@@ -16,8 +16,8 @@ public class StudentContextFacade {
         this.studentQueryService = studentQueryService;
     }
 
-    public Long createStudent(String firstName,String lastName, String email, String password, String subscription){
-        var createStudentCommand = new CreateStudentCommand(firstName,lastName,email,password,subscription);
+    public Long createStudent(String firstName,String lastName, String email, String password){
+        var createStudentCommand = new CreateStudentCommand(firstName,lastName,email,password);
         return studentCommandService.createStudent(createStudentCommand);
     }
 

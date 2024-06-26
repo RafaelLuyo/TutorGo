@@ -30,19 +30,18 @@ public class Student extends AbstractAggregateRoot<Student> {
     @Embedded
     private Password password;
 
-    @Embedded
-    private Subscription subscription;
+
     @CreatedDate
     private Date createdAt;
 
     @LastModifiedDate
     private Date updatedAt;
 
-    public Student(String firstName, String lastName, String email, String password,String subscription) {
+    public Student(String firstName, String lastName, String email, String password) {
         this.name = new StudentName(firstName, lastName);
         this.email = new EmailAddress(email);
         this.password = new Password(password);
-        this.subscription= new Subscription(subscription);
+
     }
 
     public Student() {
@@ -62,5 +61,5 @@ public class Student extends AbstractAggregateRoot<Student> {
 
     public String getEmailAddress(){return this.email.address();}
     public String getPassword(){return this.password.password();}
-    public String getSubscription(){return this.subscription.subscription();}
+
 }

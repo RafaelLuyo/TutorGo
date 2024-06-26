@@ -4,8 +4,8 @@ public record CreateStudentResource(
         String firstName,
         String lastname,
         String email,
-        String password,
-        String subscription
+        String password
+
 ) {
 
 }

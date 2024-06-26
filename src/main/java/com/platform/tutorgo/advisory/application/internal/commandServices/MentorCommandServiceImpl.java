@@ -22,7 +22,7 @@ public class MentorCommandServiceImpl implements MentorCommandService {
     @Override
     public Long createMentor(CreateMentorCommand command) {
         Student student = studentRepository.findById(command.studentId()).orElseThrow();;
-        var Mentor = new Mentor(student);
+        var Mentor = new Mentor(command.subscription(),student);
         mentorRepository.save(Mentor);
         return Mentor.getId();
     }

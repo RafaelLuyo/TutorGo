@@ -5,6 +5,6 @@ import com.platform.tutorgo.advisory.interfaces.rest.resources.MentorResource;
 
 public class MentorEntityToResource {
     public static MentorResource EntityToResource(Mentor mentor){
-        return new MentorResource (mentor.getId(),mentor.getStudent());
+        return new MentorResource (mentor.getId(),mentor.getSubscription(),mentor.getStudent());
     }
 }

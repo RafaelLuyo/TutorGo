@@ -22,6 +22,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableMethodSecurity
 public class WebSecurityConfiguration {
@@ -65,35 +67,21 @@ public class WebSecurityConfiguration {
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
-
         CorsConfiguration configuration = new CorsConfiguration();
-
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-
-        configuration.setAllowedMethods(Arrays.asList("*"));
-
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://hearty-celebration-production.up.railway.app","http://localhost:8080"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
         source.registerCorsConfiguration("/**", configuration);
-
         return source;
-
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrfConfigurer -> csrfConfigurer.disable())
-                .cors(corsConfigurer -> corsConfigurer
-                        .configurationSource(request -> {
-                            var cors = new CorsConfiguration();
-                            cors.setAllowedOrigins(java.util.List.of("http://localhost:4200"));
-                            cors.setAllowedMethods(java.util.List.of("*"));
-                            cors.setAllowedHeaders(java.util.List.of("*"));
-                            cors.setAllowCredentials(true);
-                            cors.setMaxAge(3600L);
-                            return cors;
-                        }))
+                .cors(withDefaults())
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling.authenticationEntryPoint(unauthorizedRequestHandler))
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -116,4 +104,3 @@ public class WebSecurityConfiguration {
         return http.build();
     }
 }
-
